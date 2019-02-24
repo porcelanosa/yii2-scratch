@@ -32,6 +32,14 @@ return [
                 'httpOnly' => true,
             ],
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@backend/views/yii2-user',
+                    '@dektrium/rbac/views' => '@backend/views/yii2-rbac',
+                ],
+            ],
+        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             // инструкция тут
@@ -70,7 +78,7 @@ return [
             'controllerMap' => [
                 'admin' => [
                     'class'  => 'dektrium\user\controllers\AdminController',
-                    'layout' => '//admin-layout',
+                    //'view' => '//yii2-user',
                 ],
             ],
         ],

@@ -5,8 +5,10 @@
     
     use backend\assets\AppAsset;
     use common\widgets\Alert;
+    use yii\bootstrap4\Breadcrumbs;
     use yii\helpers\Html;
-    use yii\widgets\Breadcrumbs;
+    
+    //    use yii\widgets\Breadcrumbs;
     
     AppAsset::register($this);
 ?>
