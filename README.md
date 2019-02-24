@@ -8,6 +8,9 @@
 
 [My instruction](https://goo.gl/b621En) **DRAFT!**
 
+## Content
+- Step 1: init setup + adding Yii2-user and Yii2-RBAC extenstions -  _[yii2-user-plus-yii2](https://goo.gl/cSoMPU) brunch_
+
 Official ocumentation is at [docs/guide/README.md](docs/guide/README.md).
 
 
