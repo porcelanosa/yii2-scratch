@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
     
-    use yii\bootstrap\Nav;
+    use yii\bootstrap4\Nav;
     
     /**
  * @var \yii\web\View $this
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('user', 'Users'), 'url' => [
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?= $this->render('/_alert', ['module' => Yii::$app->getModule('user')]) ?>
+<?= $this->render('_alert', ['module' => Yii::$app->getModule('user')]) ?>
 
 <?= $this->render('_menu') ?>
 

@@ -10,7 +10,7 @@
  */
     
     use yii\bootstrap\ActiveForm;
-    use yii\helpers\Html;
+    use yii\bootstrap4\Html;
     
     /**
  * @var yii\web\View $this

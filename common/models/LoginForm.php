@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use dektrium\user\models\User;
 use Yii;
 use yii\base\Model;
 
@@ -65,12 +66,12 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return UserStandartYII|null
+     * @return User|null
      */
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = UserStandartYII::findByUsername($this->username);
+            $this->_user = User::findIdentity()findByUsername($this->username);
         }
 
         return $this->_user;

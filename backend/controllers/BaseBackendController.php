@@ -1,4 +1,5 @@
 <?php
+    
     namespace backend\controllers;
     
     use dektrium\user\filters\AccessRule;
@@ -10,34 +11,36 @@
     /**
      * Site controller
      */
-    class BaseBackendController extends Controller {
+    class BaseBackendController extends Controller
+    {
         /**
          * @inheritdoc
          */
-        public function behaviors() {
+        public function behaviors()
+        {
             return [
                 'access' => [
-                    'class'        => AccessControl::class,
+                    'class'      => AccessControl::class,
                     'ruleConfig' => [
-                       'class' => AccessRule::class,
+                        'class' => AccessRule::class,
                     ],
-                    'rules'        => [
+                    'rules'      => [
                         [
-                            'actions' => [ 'login', 'error' ],
+                            'actions' => ['login', 'error'],
                             'allow'   => true,
                         ],
                         [
-                            'actions' => [ 'logout' ],
+                            'actions' => ['logout'],
                             'allow'   => true,
-                            'roles'   => [ '@' ],
+                            'roles'   => ['@'],
                         ],
                         [
-                            'allow' => true,
-                            'roles' => [ 'admin' ],
-                            'denyCallback' => function ( $rule, $action ) {
-                                Yii::$app->session->setFlash( 'info', 'You are already logged in, no need to reset password' );
+                            'allow'        => true,
+                            'roles'        => ['admin'],
+                            'denyCallback' => function ($rule, $action) {
+                                Yii::$app->session->setFlash('info', 'You are already logged in, no need to reset password');
                                 
-                                return $action->controller->redirect( '/site/index' );
+                                return $action->controller->redirect('/site/index');
                             },
                         ],
                     ],
@@ -45,12 +48,12 @@
                 'verbs'  => [
                     'class'   => VerbFilter::class,
                     'actions' => [
-                        'logout' => [ 'post' ],
+                        'logout' => ['post'],
                     ],
                 ],
             ];
         }
-    
+        
         /**
          * {@inheritdoc}
          */

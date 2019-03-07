@@ -1,12 +1,13 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
+    
+    /* @var $this \yii\web\View */
+    
+    /* @var $content string */
     
     use backend\assets\AppAsset;
     use common\widgets\Alert;
     use yii\bootstrap4\Breadcrumbs;
-    use yii\helpers\Html;
+    use yii\bootstrap4\Html;
     
     //    use yii\widgets\Breadcrumbs;
     
@@ -14,13 +15,13 @@
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?=Yii::$app->language?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?=Yii::$app->charset?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?=Html::encode($this->title)?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -55,8 +56,11 @@
                 <div class="dropdown-header text-center">
                     <strong>Settings</strong>
                 </div>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-user"></i> Profile</a>
+                <?if(Yii::$app->user->isGuest):?>
+                <?=Html::a('Sign out (' . Yii::$app->user->identity->username . ')',
+                    ['/user/security/logout'],
+                    ['data-method' => 'post', 'class'=>"dropdown-item" ]) ?>
+                <?endif;?>
             </div>
         </li>
     </ul>
@@ -68,14 +72,14 @@
     </button>
 </header>
 <div class="app-body">
-    <?=$this->render( '_left_sidebar.php' )?>
+    <?=$this->render('_left_sidebar.php')?>
     <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
-            <?= Breadcrumbs::widget([
+            <?=Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
+            ])?>
+            <?=Alert::widget()?>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
@@ -87,7 +91,7 @@
                                 <h1>Админка</h1>
                                 <hr class="intro-divider">
                             </div>
-                            <?= $content ?>
+                            <?=$content?>
                         </div>
                     </div>
                 </div>
